@@ -96,6 +96,18 @@ bot.on('message', message => {
   }
 })
 bot.on('message', message => {
+  if (message.content === "/pfc") {
+    var embed = new Discord.RichEmbed()
+    .setDescription("Les stats du bot au Pierre Feuille Ciseaux")
+    .addField("Nombre total de parties", T )
+    .addField("Nombre de vitoires", W )
+    .addField("Nombre d'égalités", E )
+    .addField("Nombre de défaites", L )
+    .addField("Pourcentage de victoires", P )
+    .setColor("A40340")
+    message.channel.sendEmbed(embed)
+    console.log("un utilisateur a regarder les stats du PFC")
+    }
   if (message.content === "/invite") {
     var embed = new Discord.RichEmbed()
     .addField("invitation:", ' https://discord.gg/rXrECCb ')
@@ -560,6 +572,7 @@ var W = 0
 var L = 0
 var E = 0
 var T = W + L + E
+var P = W / T * 100
 function random1(min, max){
   min = Math.ceil(0);
   max = Math.floor(2);
@@ -610,8 +623,6 @@ bot.on('message', message => {
         }
       }
     })
-
-
 
 
 bot.login(process.env.TOKEN)
