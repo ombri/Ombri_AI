@@ -79,6 +79,7 @@ bot.on('message', message => {
     var embed = new Discord.RichEmbed()
     .setDescription("Bon d'accord ... voici les commandes officielles ...:", )
     .addField("- /pierre, /feuille ou /ciseaux", "pour faire des partie de pierre feuille ciseaux avec le bot")
+    .addField("- /pfc", "pour avoir les stats du bot au PFC")
     .addField("- /setgame", 'pour modifier le "jeu" du bot')
     .addField("(- /num {nb maxi})", "permet d avoir un nombre aléatoire compris entre 0 et {maxi}")
     .addField("- /jap", "lien pour un dictionnaire en ligne japonnais")
@@ -164,7 +165,7 @@ bot.on('message', message => {
 
 
 
-
+// commandes non officielles, personnelles
 bot.on('message', message => {
   function random(min, max){
     min = Math.ceil(0);
@@ -555,7 +556,10 @@ bot.on('message', message => {
   }
 })
 
-
+var W = 0
+var L = 0
+var E = 0
+var T = W + L + E
 function random1(min, max){
   min = Math.ceil(0);
   max = Math.floor(2);
@@ -566,37 +570,61 @@ bot.on('message', message => {
       if (PFC === 0) {
         if (message.content === "/pierre") {
           message.reply("égalité, j'avais pris pierre")
+          E = E +1 ;
         }
         if (message.content === "/feuille") {
           message.reply("GG, t'as gagné, j'avais pris pierre")
+          L = L + 1 ;
         }
         if (message.content === "/ciseaux") {
           message.reply("J'ai gagné, j'avais pris pierre !")
+          W = W + 1 ;
         }
       }
       if (PFC === 1) {
         if (message.content === "/pierre") {
           message.reply("T'as perdu j'avais pris feuille !")
+          W = W + 1 ;
         }
         if (message.content === "/feuille") {
           message.reply("j'avais choisi feuille, égalité")
+          E = E +1 ;
         }
         if (message.content === "/ciseaux") {
-          message.reply("T'as win, t'as ciseaux coupent ma feuille")
+          message.reply("T'as win, tes ciseaux coupent ma feuille")
+          L = L + 1 ;
         }
       }
       if (PFC === 2) {
         if (message.content === "/pierre") {
           message.reply("T'étais pas obligé de casser mes ciseaux pour gagner avec t'as pierre ...")
+          L = L + 1 ;
         }
         if (message.content === "/feuille") {
           message.reply("Perdu, j'avais pris ciseaux !")
+          W = W + 1 ;
         }
         if (message.content === "/ciseaux") {
           message.reply("Combat de ciseaux ! égalité")
+          E = E +1 ;
         }
       }
     })
+
+bot.on('message', message => {
+  if (message.content = "/pfc") {
+    var embed = new Discord.RichEmbed()
+    .setDescription("Les stats du bot au Pierre Feuille Ciseaux")
+    .addField("Nombre total de parties", T )
+    .addField("Nombre de vitoires", W )
+    .addField("Nombre d'égalités", E )
+    .addField("Nombre de défaites", L )
+    .addField("Pourcentage de victoire", W/T*100)
+    .setColor("A40340")
+    message.channel.sendEmbed(embed)
+    console.log("un utilisateur a regarder les stats du PFC")
+  }
+})
 
 
 bot.login(process.env.TOKEN)
