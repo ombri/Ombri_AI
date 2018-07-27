@@ -611,20 +611,7 @@ bot.on('message', message => {
       }
     })
 
-bot.on('message', message => {
-  if (message.content = "/pfc") {
-    var embed = new Discord.RichEmbed()
-    .setDescription("Les stats du bot au Pierre Feuille Ciseaux")
-    .addField("Nombre total de parties", T )
-    .addField("Nombre de vitoires", W )
-    .addField("Nombre d'égalités", E )
-    .addField("Nombre de défaites", L )
-    .addField("Pourcentage de victoire", W/T*100)
-    .setColor("A40340")
-    message.channel.sendEmbed(embed)
-    console.log("un utilisateur a regarder les stats du PFC")
-  }
-})
+
 
 
 bot.login(process.env.TOKEN)
