@@ -294,6 +294,9 @@ if (message.content === "blabla") {
   message.channel.send("tu parle seul ?")
   message.channel.send("aller ! je m'incruste dans t'as conversation: blablabla")
 }
+if (message.content.startsWith("*calin*")) {
+  message.channel.send('faites ça en priver au moins !, y a des enfants ici') ;
+}
 if (message.content.startsWith("Je t'envoie de l'énergie")){
   message.channel.send("moi aussi je veux aider ! :raised_hands:")
 }
