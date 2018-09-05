@@ -33,7 +33,7 @@ bot.on('message', message => {
     bot.user.setActivity('un FPS')
     }
   if (randnum === 7) {
-    bot.user.setActivity('comquérir le monde !')
+    bot.user.setActivity('conquérir le monde !')
     }
   if (randnum === 8) {
     bot.user.setActivity('faire du popcorn')
@@ -294,7 +294,7 @@ if (message.content === "blabla") {
   message.channel.send("tu parle seul ?")
   message.channel.send("aller ! je m'incruste dans t'as conversation: blablabla")
 }
-if (message.content.startsWith("*calin*")) {
+if (message.content.startsWith("calin")) {
   message.channel.send('faites ça en priver au moins !, y a des enfants ici') ;
 }
 if (message.content.startsWith("Je t'envoie de l'énergie")){
@@ -560,7 +560,7 @@ bot.on('message', message => {
       bot.user.setActivity('un FPS')
       }
     if (randnum === 7) {
-      bot.user.setActivity('comquérir le monde !')
+      bot.user.setActivity('conquérir le monde !')
       }
     var embed = new Discord.RichEmbed()
       .setDescription("Menace écartée")
