@@ -197,7 +197,7 @@ bot.on('message', message => {
               message.channel.send("Bonne Nuit !");
           }
   }
-  if (message.content === "neko") {
+  if (message.content.startsWith("neko")) {
     random()
         if (randnum ===0){
                 message.reply("Vive les neko !! nyan !");
@@ -254,9 +254,6 @@ bot.on('message', message => {
               message.reply("aller ! encore des tests");
           }
   }
-  if (message.content === "i love you") {
-        message.channel.send(' <3 ;) ')
-  }
   if (message.content === "Keur") {
         message.channel.send(" dégage ! c'est dégeux, et tu sais pas écrire !")
   }
@@ -288,15 +285,24 @@ bot.on('message', message => {
   message.channel.send('Si gab est un génie ! \n ... \n de la connerie, mais un génie quand même.')
  }
  if (message.content === "j'adore ce bot") {
-  message.channel.send("Qui ? qui ? j'espère que tu parle de moi !")
+  message.channel.send("Qui ? qui ? j'espère que tu parles de moi !")
 }
 if (message.content === "blabla") {
   message.channel.send("tu parle seul ?")
   message.channel.send("aller ! je m'incruste dans t'as conversation: blablabla")
 }
-if (message.content.startsWith("calin")) {
-  message.channel.send('faites ça en priver au moins !, y a des enfants ici') ;
-}
+ if (message.content.startsWith ("shut up")){
+              random()
+             if (randnum ===0){
+                      message.reply('faites ça en priver au moins !, y a des enfants ici');
+                  }
+             if (randnum ===1){
+                    message.reply(" <3 ");
+                }
+             if (randnum ===2){
+                    message.reply("aaaah, c'est beau l'amooooor !);
+                }
+  }
 if (message.content.startsWith("Je t'envoie de l'énergie")){
   message.channel.send("moi aussi je veux aider ! :raised_hands:")
 }
