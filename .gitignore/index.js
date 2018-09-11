@@ -54,7 +54,8 @@ bot.on('message', message => {
 
 bot.on('guildMemberAdd', member => {
   member.guild.channels.find("name", "general").send(` ${member.user} bienvenue ! Fait pas attention au bordel ... `)
-  console.log("nouveau memebre !")
+  .send('comment va tu ?')
+  console.log("nouveau membre !")
 })
 
 bot.on('guildMemberRemove', member => {
