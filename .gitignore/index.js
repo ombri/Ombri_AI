@@ -241,7 +241,7 @@ bot.on('message', message => {
     message.channel.send("Go ce cotiser pour aider Alau et Ledo à s'acheter un PC (+ CSGO pour le ledo) ; un casque VR et OW pour ombri")
   }
   if (message.content === "@everyone") {
-    message.channel.send('Putin ne notifie pas tout le monde pour rien !  \n y en a qui dorment !!!')
+    message.channel.send('Putain ne notifie pas tout le monde pour rien !  \n y en a qui dorment !!!')
   }
   if (message.content === "test"){
         random()
