@@ -6,12 +6,44 @@ bot.on('ready', function () {
 })
 
 bot.on('ready', function () {
-  bot.user.setActivity('<unkown>')
   function random(min, max){
     min = Math.ceil(0);
     max = Math.floor(9);
     randnum = Math.floor(Math.random() * (max - min +1)+ min);
   }
+    random()
+    if (randnum === 0) {
+      bot.user.setActivity(' ') 
+       }
+    if (randnum === 1) {
+      bot.user.setActivity('dormir debout') 
+    }
+    if (randnum === 2) {
+      bot.user.setActivity('coder') 
+    }
+    if (randnum === 4) {
+      bot.user.setActivity('découvrir un nouveau monde')
+      }
+    if (randnum === 5) {
+      bot.user.setActivity("lire l'avenir !")
+      }
+    if (randnum === 6) {
+      bot.user.setActivity('un FPS')
+      }
+    if (randnum === 7) {
+      bot.user.setActivity('comquérir le monde !')
+      }
+    if (randnum === 8) {
+      bot.user.setActivity('faire du popcorn')
+      }
+    if (randnum === 9) {
+      bot.user.setActivity('gagner sa vie')
+      }
+    if (randnum === 3) {
+      bot.user.setActivity('embêter Kobby') 
+      }
+    })
+
 bot.on('message', message => {
  if (message.content === "/setgame") {
   random()
@@ -33,7 +65,7 @@ bot.on('message', message => {
     bot.user.setActivity('un FPS')
     }
   if (randnum === 7) {
-    bot.user.setActivity('conquérir le monde !')
+    bot.user.setActivity('comquérir le monde !')
     }
   if (randnum === 8) {
     bot.user.setActivity('faire du popcorn')
@@ -46,7 +78,6 @@ bot.on('message', message => {
     }
   }
   })
-})
 
 
 
@@ -54,8 +85,7 @@ bot.on('message', message => {
 
 bot.on('guildMemberAdd', member => {
   member.guild.channels.find("name", "general").send(` ${member.user} bienvenue ! Fait pas attention au bordel ... `)
-  .send('comment va tu ?')
-  console.log("nouveau membre !")
+  console.log("nouveau memebre !")
 })
 
 bot.on('guildMemberRemove', member => {
@@ -97,19 +127,6 @@ bot.on('message', message => {
   }
 })
 bot.on('message', message => {
-  if (message.content === "/pfc") {
-    var T = W+L+E
-    var embed = new Discord.RichEmbed()
-    .setDescription("Les stats du bot au Pierre Feuille Ciseaux")
-    .addField("Nombre total de parties", W + L + E )
-    .addField("Nombre de vitoires", W )
-    .addField("Nombre d'égalités", E )
-    .addField("Nombre de défaites", L )
-    .addField("Pourcentage de victoires", W/T* 100 )
-    .setColor("A40340")
-    message.channel.sendEmbed(embed)
-    console.log("un utilisateur a regarder les stats du PFC")
-    }
   if (message.content === "/invite") {
     var embed = new Discord.RichEmbed()
     .addField("invitation:", ' https://discord.gg/rXrECCb ')
@@ -198,7 +215,7 @@ bot.on('message', message => {
               message.channel.send("Bonne Nuit !");
           }
   }
-  if (message.content.startsWith("neko")) {
+  if (message.content === "neko") {
     random()
         if (randnum ===0){
                 message.reply("Vive les neko !! nyan !");
@@ -209,6 +226,9 @@ bot.on('message', message => {
         if (randnum ===2){
               message.channel.send("<3 :heart: <3");
           }
+  }
+  if (message.content.startsWith === ("comquerir")) {
+        message.reply("yep ;) ");
   }
   if (message.content === "ça va ?") {
     random()
@@ -241,7 +261,7 @@ bot.on('message', message => {
     message.channel.send("Go ce cotiser pour aider Alau et Ledo à s'acheter un PC (+ CSGO pour le ledo) ; un casque VR et OW pour ombri")
   }
   if (message.content === "@everyone") {
-    message.channel.send('Putain ne notifie pas tout le monde pour rien !  \n y en a qui dorment !!!')
+    message.channel.send('Putin ne notifie pas tout le monde pour rien !  \n y en a qui dorment !!!')
   }
   if (message.content === "test"){
         random()
@@ -254,6 +274,9 @@ bot.on('message', message => {
         if (randnum ===2){
               message.reply("aller ! encore des tests");
           }
+  }
+  if (message.content === "i love you") {
+        message.channel.send(' <3 ;) ')
   }
   if (message.content === "Keur") {
         message.channel.send(" dégage ! c'est dégeux, et tu sais pas écrire !")
@@ -286,24 +309,12 @@ bot.on('message', message => {
   message.channel.send('Si gab est un génie ! \n ... \n de la connerie, mais un génie quand même.')
  }
  if (message.content === "j'adore ce bot") {
-  message.channel.send("Qui ? qui ? j'espère que tu parles de moi !")
+  message.channel.send("Qui ? qui ? j'espère que tu parle de moi !")
 }
 if (message.content === "blabla") {
   message.channel.send("tu parle seul ?")
   message.channel.send("aller ! je m'incruste dans t'as conversation: blablabla")
 }
- if (message.content.startsWith ("shut up")){
-              random()
-             if (randnum ===0){
-                      message.reply('faites ça en priver au moins !, y a des enfants ici');
-                  }
-             if (randnum ===1){
-                    message.reply(" <3 ");
-                }
-             if (randnum ===2){
-                    message.reply("aaaah, c'est beau l'amooooor !);
-                }
-  }
 if (message.content.startsWith("Je t'envoie de l'énergie")){
   message.channel.send("moi aussi je veux aider ! :raised_hands:")
 }
@@ -582,6 +593,7 @@ bot.on('message', message => {
 var W = 0
 var L = 0
 var E = 0
+var T = W + L + E
 function random1(min, max){
   min = Math.ceil(0);
   max = Math.floor(2);
@@ -633,5 +645,19 @@ bot.on('message', message => {
       }
     })
 
+bot.on('message', message => {
+  if (message.content = "/pfc") {
+    var embed = new Discord.RichEmbed()
+    .setDescription("Les stats du bot au Pierre Feuille Ciseaux")
+    .addField("Nombre total de parties", T )
+    .addField("Nombre de vitoires", W )
+    .addField("Nombre d'égalités", E )
+    .addField("Nombre de défaites", L )
+    .addField("Pourcentage de victoire", W/T*100)
+    .setColor("A40340")
+    message.channel.sendEmbed(embed)
+    console.log("un utilisateur a regarder les stats du PFC")
+  }
+})
 
 bot.login(process.env.TOKEN)
