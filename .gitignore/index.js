@@ -147,7 +147,7 @@ bot.on('message', message => {
   }
   if (message.content === "/team") {
     var embed = new Discord.RichEmbed()
-    .addField('Pour faire parti de la Team Captain Noobies:', 'http://steamcommunity.com/groups/team_captain_noobies/')
+    .addField('Pour faire parti de la Neko Army !:', 'https://steamcommunity.com/groups/Neko_Amy')
     .setColor("A40340")
     message.channel.sendEmbed(embed)
     console.log("un utilisateur veut rejoindre la team ?")
