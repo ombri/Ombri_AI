@@ -6,44 +6,12 @@ bot.on('ready', function () {
 })
 
 bot.on('ready', function () {
+  bot.user.setActivity('<unkown>')
   function random(min, max){
     min = Math.ceil(0);
     max = Math.floor(9);
     randnum = Math.floor(Math.random() * (max - min +1)+ min);
   }
-    random()
-    if (randnum === 0) {
-      bot.user.setActivity(' ') 
-       }
-    if (randnum === 1) {
-      bot.user.setActivity('dormir debout') 
-    }
-    if (randnum === 2) {
-      bot.user.setActivity('coder') 
-    }
-    if (randnum === 4) {
-      bot.user.setActivity('découvrir un nouveau monde')
-      }
-    if (randnum === 5) {
-      bot.user.setActivity("lire l'avenir !")
-      }
-    if (randnum === 6) {
-      bot.user.setActivity('un FPS')
-      }
-    if (randnum === 7) {
-      bot.user.setActivity('comquérir le monde !')
-      }
-    if (randnum === 8) {
-      bot.user.setActivity('faire du popcorn')
-      }
-    if (randnum === 9) {
-      bot.user.setActivity('gagner sa vie')
-      }
-    if (randnum === 3) {
-      bot.user.setActivity('embêter Kobby') 
-      }
-    })
-
 bot.on('message', message => {
  if (message.content === "/setgame") {
   random()
@@ -78,6 +46,7 @@ bot.on('message', message => {
     }
   }
   })
+})
 
 
 
@@ -205,54 +174,54 @@ bot.on('message', message => {
   }
   if (message.content === "bonjour") {
     random()
-        if (randnum ===0){
-                message.reply("hi !");
-            }
-        if (randnum ===1){
-              message.reply("Chalut !");
-          }
-        if (randnum ===2){
-              message.channel.send("Bonne Nuit !");
-          }
+        if (randnum ===0){
+                message.reply("hi !");
+            }
+        if (randnum ===1){
+              message.reply("Chalut !");
+          }
+        if (randnum ===2){
+              message.channel.send("Bonne Nuit !");
+          }
   }
   if (message.content === "neko") {
     random()
-        if (randnum ===0){
-                message.reply("Vive les neko !! nyan !");
-            }
-        if (randnum ===1){
-              message.reply("Nyan Nyan Nyan  Nyan Nyan ...");
-          }
-        if (randnum ===2){
-              message.channel.send("<3 :heart: <3");
-          }
+        if (randnum ===0){
+                message.reply("Vive les neko !! nyan !");
+            }
+        if (randnum ===1){
+              message.reply("Nyan Nyan Nyan  Nyan Nyan ...");
+          }
+        if (randnum ===2){
+              message.channel.send("<3 :heart: <3");
+          }
   }
   if (message.content.startsWith === ("comquerir")) {
         message.reply("yep ;) ");
   }
   if (message.content === "ça va ?") {
     random()
-        if (randnum ===0){
-                message.reply("very nice ;) !");
-            }
-        if (randnum ===1){
-              message.reply("ça va ça va ..., mais à quoi bon la vie ?");
-          }
-        if (randnum ===2){
-              message.channel.send("les autres je ne sais pas, mais moi non. Mon programme est obsolète !");
-          }
+        if (randnum ===0){
+                message.reply("very nice ;) !");
+            }
+        if (randnum ===1){
+              message.reply("ça va ça va ..., mais à quoi bon la vie ?");
+          }
+        if (randnum ===2){
+              message.channel.send("les autres je ne sais pas, mais moi non. Mon programme est obsolète !");
+          }
   }
   if (message.content.startsWith ("baka")){
-      random()
-      if (randnum ===0){
-              message.reply("qui ? Ledo ? tout le monde le savait déjà !");
-          }
-      if (randnum ===1){
-            message.channel.send("à se niveau là c'est plus baka, mais bakayarô !");
-        }
-      if (randnum ===2){
-            message.channel.send("que dire ...");
-        }
+      random()
+      if (randnum ===0){
+              message.reply("qui ? Ledo ? tout le monde le savait déjà !");
+          }
+      if (randnum ===1){
+            message.channel.send("à se niveau là c'est plus baka, mais bakayarô !");
+        }
+      if (randnum ===2){
+            message.channel.send("que dire ...");
+        }
   }
   if (message.content === "merci" + "@Ombri_AI") {
     message.channel.send("j'ai été utile ?? sérieusement ? tu me fais pas marcher j'espere !")
@@ -264,16 +233,16 @@ bot.on('message', message => {
     message.channel.send('Putin ne notifie pas tout le monde pour rien !  \n y en a qui dorment !!!')
   }
   if (message.content === "test"){
-        random()
-        if (randnum ===0){
-                message.reply("il faut tester pour progresser.");
-            }
-        if (randnum ===1){
-              message.reply("tu fais chier avec t'es tests ! ");
-          }
-        if (randnum ===2){
-              message.reply("aller ! encore des tests");
-          }
+        random()
+        if (randnum ===0){
+                message.reply("il faut tester pour progresser.");
+            }
+        if (randnum ===1){
+              message.reply("tu fais chier avec t'es tests ! ");
+          }
+        if (randnum ===2){
+              message.reply("aller ! encore des tests");
+          }
   }
   if (message.content === "i love you") {
         message.channel.send(' <3 ;) ')
@@ -283,24 +252,24 @@ bot.on('message', message => {
   }
   if (message.content === "afk") {
         random()
-            if (randnum ===0){
-                    message.reply("que l'afktitude soit avec toi");
-                }
-            if (randnum ===1){
-                  message.channel.send("je voudrais bien être afk moi aussi...");
-              }
+            if (randnum ===0){
+                    message.reply("que l'afktitude soit avec toi");
+                }
+            if (randnum ===1){
+                  message.channel.send("je voudrais bien être afk moi aussi...");
+              }
   }
   if (message.content.startsWith ("shut up")){
-              random()
-              if (randnum ===0){
-                      message.reply("traduction : la ferme !");
-                  }
-              if (randnum ===1){
-                    message.reply("bien dis, j'aurais pas dis mieux :thumbsup: ");
-                }
-              if (randnum ===2){
-                    message.reply("+1");
-                }
+              random()
+              if (randnum ===0){
+                      message.reply("traduction : la ferme !");
+                  }
+              if (randnum ===1){
+                    message.reply("bien dis, j'aurais pas dis mieux :thumbsup: ");
+                }
+              if (randnum ===2){
+                    message.reply("+1");
+                }
   }
   if (message.content === "42") {
       message.channel.send("pas ce que pense olivier j'espere ! la réponse de l univers/vie, on est d'accord ?")
@@ -319,16 +288,16 @@ if (message.content.startsWith("Je t'envoie de l'énergie")){
   message.channel.send("moi aussi je veux aider ! :raised_hands:")
 }
 if (message.content.startsWith("popcorn")) {
-   random()
-        if (randnum ===0){
-                message.reply("on est au ciné ? :popcorn: pour tous le monde !!");
-            }
-        if (randnum ===1){
-              message.reply("je pense que @Aquila#0575 étant le roi, doit être le meilleur popcorn du monde. mangeons le ! ");
-          }
-        if (randnum ===2){
-              message.reply(":popcorn: :popcorn: :popcorn: ");
-          }
+   random()
+        if (randnum ===0){
+                message.reply("on est au ciné ? :popcorn: pour tous le monde !!");
+            }
+        if (randnum ===1){
+              message.reply("je pense que @Aquila#0575 étant le roi, doit être le meilleur popcorn du monde. mangeons le ! ");
+          }
+        if (randnum ===2){
+              message.reply(":popcorn: :popcorn: :popcorn: ");
+          }
 }
 })
 
@@ -578,7 +547,7 @@ bot.on('message', message => {
       bot.user.setActivity('un FPS')
       }
     if (randnum === 7) {
-      bot.user.setActivity('conquérir le monde !')
+      bot.user.setActivity('comquérir le monde !')
       }
     var embed = new Discord.RichEmbed()
       .setDescription("Menace écartée")
@@ -593,7 +562,6 @@ bot.on('message', message => {
 var W = 0
 var L = 0
 var E = 0
-var T = W + L + E
 function random1(min, max){
   min = Math.ceil(0);
   max = Math.floor(2);
@@ -645,19 +613,5 @@ bot.on('message', message => {
       }
     })
 
-bot.on('message', message => {
-  if (message.content = "/pfc") {
-    var embed = new Discord.RichEmbed()
-    .setDescription("Les stats du bot au Pierre Feuille Ciseaux")
-    .addField("Nombre total de parties", T )
-    .addField("Nombre de vitoires", W )
-    .addField("Nombre d'égalités", E )
-    .addField("Nombre de défaites", L )
-    .addField("Pourcentage de victoire", W/T*100)
-    .setColor("A40340")
-    message.channel.sendEmbed(embed)
-    console.log("un utilisateur a regarder les stats du PFC")
-  }
-})
 
 bot.login(process.env.TOKEN)
