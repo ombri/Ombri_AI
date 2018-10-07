@@ -76,7 +76,6 @@ bot.on('message', message => {
   if (randnum === 3) {
     bot.user.setActivity('embêter Kobby') 
     }
-   console.log("Game set")
   }
   })
 
