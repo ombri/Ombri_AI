@@ -6,12 +6,44 @@ bot.on('ready', function () {
 })
 
 bot.on('ready', function () {
-  bot.user.setActivity('<unkown>')
   function random(min, max){
     min = Math.ceil(0);
     max = Math.floor(9);
     randnum = Math.floor(Math.random() * (max - min +1)+ min);
   }
+    random()
+    if (randnum === 0) {
+      bot.user.setActivity(' ') 
+       }
+    if (randnum === 1) {
+      bot.user.setActivity('dormir debout') 
+    }
+    if (randnum === 2) {
+      bot.user.setActivity('coder') 
+    }
+    if (randnum === 4) {
+      bot.user.setActivity('découvrir un nouveau monde')
+      }
+    if (randnum === 5) {
+      bot.user.setActivity("lire l'avenir !")
+      }
+    if (randnum === 6) {
+      bot.user.setActivity('un FPS')
+      }
+    if (randnum === 7) {
+      bot.user.setActivity('comquérir le monde !')
+      }
+    if (randnum === 8) {
+      bot.user.setActivity('faire du popcorn')
+      }
+    if (randnum === 9) {
+      bot.user.setActivity('gagner sa vie')
+      }
+    if (randnum === 3) {
+      bot.user.setActivity('embêter Kobby') 
+      }
+    })
+
 bot.on('message', message => {
  if (message.content === "/setgame") {
   random()
@@ -46,7 +78,6 @@ bot.on('message', message => {
     }
   }
   })
-})
 
 
 
