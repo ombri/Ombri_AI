@@ -461,7 +461,7 @@ bot.on('message', message =>{
     let args = message.content.split(" ").slice(1);
   
     if(!args[0]) return message.channel.send("Tu dois préciser un nombre de message a supprimer !")
-    message.channel.bulkDelete(args[0 + 1]).then(() => {                                                                                        //test du +1
+    message.channel.bulkDelete(args[0]).then(() => {                                                                                        //test du +1
           message.channel.send(`${args[0]} message ont été supprimés !`);
           console.log("Un utilisateur a effectué la commande pour clear")
     })
@@ -472,7 +472,7 @@ bot.on('message', message =>{
     let args = message.content.split(" ").slice(1);
     
     if(!args[0]) return message.channel.send("Tu dois préciser un nombre de message a supprimer !")
-    message.channel.bulkDelete(args[0 + 1]).then(() => {
+    message.channel.bulkDelete(args[0]).then(() => {
         console.log("Un utilisateur a effectué la commande pour clear")
     })
   }
