@@ -93,7 +93,7 @@ bot.on('message', message => {
   if (message.content.startsWith('/setgames')) {
 
     let args = message.content.split(" ").slice(1);
-    if(!args[0]) return message.channel.send("Tu dois préciser à quoi ombri doit jouer (pas de ponctuation ! sinon crash du bot, seul les . sont acceptés)")
+    if(!args[0]) return message.channel.send("Tu dois préciser à quoi ombri doit jouer")
 
     if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
    else {
