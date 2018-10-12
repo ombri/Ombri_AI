@@ -563,6 +563,7 @@ if(message.content.startsWith("/ban")) {
   }
   message.channel.overwritePermissions(blind, { READ_MESSAGES: false}).then(member => {
       message.channel.send(`${blind.user.username} est aveugle!`);
+    message.channel.send("attention: à la différence du /mute, le /blind n'a pas de /unblind, vous devrez le faire manuellement");
   })
 }
 if(message.content.startsWith("/unblind")) {
