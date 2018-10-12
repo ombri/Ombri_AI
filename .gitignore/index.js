@@ -1,61 +1,136 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js')                                       //démarrage
 const bot = new Discord.Client()
+
+
+function random(min, max){                                                  //bienvenue, au revoir, setgame
+  min = Math.ceil(0);
+  max = Math.floor(10);
+  randnum = Math.floor(Math.random() * (max - min +1)+ min);
+}
+
+
+class gameset {
+
+
+ static action () {
+     
+  random()
+
+  if (randnum === 0) {
+    bot.user.setActivity('rien') 
+     }
+  if (randnum === 1) {
+    bot.user.setActivity('dormir debout') 
+  }
+  if (randnum === 2) {
+    bot.user.setActivity('coder') 
+  }
+  if (randnum === 4) {
+    bot.user.setActivity('découvrir un nouveau monde')
+    }
+  if (randnum === 5) {
+    bot.user.setActivity("lire l'avenir !")
+    }
+  if (randnum === 6) {
+    bot.user.setActivity('un FPS')
+    }
+  if (randnum === 7) {
+    bot.user.setActivity('comquérir le monde !')
+    }
+  if (randnum === 8) {
+    bot.user.setActivity('faire du popcorn')
+    }
+  if (randnum === 9) {
+    bot.user.setActivity('gagner sa vie')
+    }
+  if (randnum === 3) {
+    bot.user.setActivity('embêter Kobby et olii') 
+    }
+  if (randnum === 10) {
+    bot.user.setActivity('je suis inutile ;(  ') 
+    }
+}
+}
+
+bot.on('message', message => {
+  if (message.content === "/setgame") {
+   random()
+   if (randnum === 0) {
+    bot.user.setActivity('rien') 
+      }
+   if (randnum === 1) {
+     bot.user.setActivity('dormir debout') 
+   }
+   if (randnum === 2) {
+     bot.user.setActivity('coder') 
+   }
+   if (randnum === 4) {
+     bot.user.setActivity('découvrir un nouveau monde')
+     }
+   if (randnum === 5) {
+     bot.user.setActivity("lire l'avenir !")
+     }
+   if (randnum === 6) {
+     bot.user.setActivity('un FPS')
+     }
+   if (randnum === 7) {
+     bot.user.setActivity('comquérir le monde !')
+     }
+   if (randnum === 8) {
+     bot.user.setActivity('faire du popcorn')
+     }
+   if (randnum === 9) {
+     bot.user.setActivity('gagner sa vie')
+     }
+   if (randnum === 3) {
+     bot.user.setActivity('embêter Kobby et olii') 
+     }
+     console.log("game set")
+   }
+   })
+
+bot.on('message', message => {
+  if (message.content.startsWith('/setgames')) {
+
+    let args = message.content.split(" ").slice(1);
+    if(!args[0]) return message.channel.send("Tu dois préciser à quoi ombri doit jouer")
+
+    if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
+   else {
+      var setgames = message.content.substr(10) ;
+      bot.user.setActivity(setgames)
+    }
+   console.log("quelqu'un a écris un setgames")
+    }
+  })
+
+
 
 bot.on('ready', function () {
   console.log("Je suis connecté !")
 })
 
-bot.on('ready', function () {
-  function random(min, max){
-    min = Math.ceil(0);
-    max = Math.floor(9);
-    randnum = Math.floor(Math.random() * (max - min +1)+ min);
-  }
-    random()
-    if (randnum === 0) {
-      bot.user.setActivity(' ') 
-       }
-    if (randnum === 1) {
-      bot.user.setActivity('dormir debout') 
-    }
-    if (randnum === 2) {
-      bot.user.setActivity('coder') 
-    }
-    if (randnum === 4) {
-      bot.user.setActivity('découvrir un nouveau monde')
-      }
-    if (randnum === 5) {
-      bot.user.setActivity("lire l'avenir !")
-      }
-    if (randnum === 6) {
-      bot.user.setActivity('un FPS')
-      }
-    if (randnum === 7) {
-      bot.user.setActivity('comquérir le monde !')
-      }
-    if (randnum === 8) {
-      bot.user.setActivity('faire du popcorn')
-      }
-    if (randnum === 9) {
-      bot.user.setActivity('gagner sa vie')
-      }
-    if (randnum === 3) {
-      bot.user.setActivity('embêter Kobby') 
-      }
-    })
-
-
-// bienvenue et bye
-
-bot.on('guildMemberAdd', member => {
-  member.guild.channels.find("name", "general").send(` ${member.user} bienvenue ! Fait pas attention au bordel ... `)
-  console.log("nouveau memebre !")
+bot.on('ready', function (message) {
+    gameset.action()
 })
 
+
+bot.on('guildMemberAdd', function(member) {
+  member.createDM().then(function(channel) {
+    return channel.send('Bienvenue ' + member.displayName + ' à toi sur le Bordel du dauph ! (je te conseil de modifié les paramètre des notifications de certains des channels)')
+  })
+})
+
+bot.on('guildMemberAdd', member => {                                  //nom du channel variant suivant le serveur !!!!!
+  member.guild.channels.find("name", "general").send(` ${member.user} bienvenue ! Fait pas attention au bordel ..., le ménage n'est pas fait ... `)
+  console.log("nouveau memebre !")
+})
 bot.on('guildMemberRemove', member => {
   member.guild.channels.find("name", "general").send(` ${member.user} nous a quitté ;( `)
   console.log("-1 membre :( ")
 })
+
+
 
 
 // commandes
@@ -138,23 +213,10 @@ bot.on('message', message => {
     console.log("I play pokemon ...")
   }
   if (message.content.startsWith("/say")){
-    if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas la permission !");
+    if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.channel.send("Vous n'avez pas la permission !");
      message.delete(message.author);
      var say = message.content.substr(5);
      message.channel.send(say);
-}
-})
-
-bot.on('message', message => {
-  var N = message.content.substr(5)
-  function random(min, max){
-    min = Math.ceil(0);
-    max = Math.floor(N);
-    randnum = Math.floor(Math.random() * (max - min +1)+ min);
-  if (message.startsWith("/num" + N)) {
-    random()
-    message.reply("Vous avez obtenue:"+ randnum)
-  }
   }
 })
 
@@ -297,116 +359,127 @@ if (message.content.startsWith("popcorn")) {
 })
 
 bot.on('message', message =>{
-if(message.content.startsWith("/infop")) {
-  var memberavatar = message.author.avatarURL
-  var membername = message.author.username
-  var mentionned = message.mentions.users.first();
-  var getvalueof;
-    if(mentionned){ var getvalueof = mentionned;
-    } else { var getvalueof = message.author;
-    }
-
-    if(getvalueof.bot == true){ var checkbot = "L'utilisateur est un bot";
-    } 
-    else {var checkbot = "N'est pas un bot";
-    }
-    if(getvalueof.presence.status == 'online'){ var status = "En ligne"; 
-    }
-    else { var status = "Hors ligne";
-    }
-
-  message.channel.sendMessage({
-      embed: {
-        type: 'rich',
-        description: '',
-        fields: [{
-          name: 'Pseudo',
-          value: getvalueof.username,
-          inline: true
-        }, {
-          name: 'User id',
-          value: getvalueof.id,
-          inline: true
-        },{
-          name: 'Discriminateur',
-          value: getvalueof.discriminator,
-          inline: true
-},{
-          name: 'Status',
-          value: status,
-          inline: true
-},{
-          name: 'Bot',
-          value: checkbot,
-          inline: true
-}],
-      image: {
-    url: getvalueof.avatarURL
-      },
-        color: 0xA40340,
-        footer: {
-          proxy_icon_url: ' '
-        },
-        author: {
-          name: membername,
-          icon_url: memberavatar,
-          proxy_icon_url: ' '
-        }
+  if(message.content.startsWith("/infop")) {
+    var memberavatar = message.author.avatarURL
+    var membername = message.author.username
+    var mentionned = message.mentions.users.first();
+    var getvalueof;
+      if(mentionned){ var getvalueof = mentionned;
+      } else { var getvalueof = message.author;
       }
-});
-console.log("un utilisateur à regardé les stats de quelqu'un")
-}
-  if(message.content.startsWith("/infos")) {
+  
+      if(getvalueof.bot == true){ var checkbot = "L'utilisateur est un bot";
+      } 
+      else {var checkbot = "N'est pas un bot";
+      }
+      if(getvalueof.presence.status == 'online'){ var status = "En ligne"; 
+      }
+      else { var status = "Hors ligne";
+      }
+  
     message.channel.sendMessage({
         embed: {
           type: 'rich',
-          description: 'Les infos du serveur',
+          description: '',
           fields: [{
-            name: 'Nom du serveur',
-            value: message.guild.name,
+            name: 'Pseudo',
+            value: getvalueof.username,
             inline: true
-  }, {
-            name: "Nombre d'utilisateurs",
-            value: message.guild.memberCount,
+          }, {
+            name: 'User id',
+            value: getvalueof.id,
+            inline: true
+          },{
+            name: 'Discriminateur',
+            value: getvalueof.discriminator,
             inline: true
   },{
-            name: 'créé le',
-            value: message.guild.createdAt,
+            name: 'Status',
+            value: status,
             inline: true
   },{
-            name: 'Tu as rejoind le',
-            value: message.member.joinedAt,
-            inline: true
-  },{            
-            name: 'Ton ping (buggé)',
-            value: message.createdTimestamp,
+            name: 'Bot',
+            value: checkbot,
             inline: true
   }],
         image: {
-      url: message.guild.iconURL
+      url: getvalueof.avatarURL
         },
           color: 0xA40340,
           footer: {
             proxy_icon_url: ' '
           },
+          author: {
+            name: membername,
+            icon_url: memberavatar,
+            proxy_icon_url: ' '
+          }
         }
   });
-  console.log("un utilisateur à regarder les stats du serveur")
+  console.log("un utilisateur à regardé les stats de quelqu'un")
   }
-  if(message.content.startsWith("/clear")) {
+  if(message.content.startsWith("/infos")) {
+      message.channel.sendMessage({
+          embed: {
+            type: 'rich',
+            description: 'Les infos du serveur',
+            fields: [{
+              name: 'Nom du serveur',
+              value: message.guild.name,
+              inline: true
+    }, {
+              name: "Nombre d'utilisateurs",
+              value: message.guild.memberCount,
+              inline: true
+    },{
+              name: 'créé le',
+              value: message.guild.createdAt,
+              inline: true
+    },{
+              name: 'Tu as rejoind le',
+              value: message.member.joinedAt,
+              inline: true
+    },{            
+              name: 'Ton ping (buggé)',
+              value: message.createdTimestamp,
+              inline: true
+    }],
+          image: {
+        url: message.guild.iconURL
+          },
+            color: 0xA40340,
+            footer: {
+              proxy_icon_url: ' '
+            },
+          }
+    });
+    console.log("un utilisateur à regarder les stats du serveur")
+  }
+ if(message.content.startsWith("/clear")) {
     if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
-
+  
     let args = message.content.split(" ").slice(1);
-
+  
     if(!args[0]) return message.channel.send("Tu dois préciser un nombre de message a supprimer !")
-    message.channel.bulkDelete(args[0]).then(() => {
-        message.channel.send(`${args[0]} message ont été supprimés !`);
+    message.channel.bulkDelete(args[0 + 1]).then(() => {                                                                                        //test du +1
+          message.channel.send(`${args[0]} message ont été supprimés !`);
+          console.log("Un utilisateur a effectué la commande pour clear")
+    })
+  }
+  if(message.content.startsWith("/clears")) {                                                                                                   //peut etre pas ok
+    if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.channel.send("Vous n'avez pas la permission !");
+    
+    let args = message.content.split(" ").slice(1);
+    
+    if(!args[0]) return message.channel.send("Tu dois préciser un nombre de message a supprimer !")
+    message.channel.bulkDelete(args[0 + 1]).then(() => {
         console.log("Un utilisateur a effectué la commande pour clear")
     })
-}
-})
+  }
+ })
 
-bot.on('message', message => {
+
+ bot.on('message', message => {
   if (MOD === 2) {
   if(message.content.startsWith("/mute")) {
     if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
@@ -474,6 +547,42 @@ if(message.content.startsWith("/ban")) {
     }
     )
  }
+ if(message.content.startsWith("/blind")) {                                   //marche ??
+  if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
+
+  if(message.mentions.users.size === 0) {
+      return message.channel.send('Vous devez mentionner un utilisateur !');
+     console.log("Un utilisateur a utilisé la commande /blind")
+  }
+
+  var blind = message.guild.member(message.mentions.users.first());
+  if(!blind) {
+
+      return message.channel.send("Je n'ai pas trouvé l'utilisateur ou il l'existe pas !");
+
+  }
+  message.channel.overwritePermissions(blind, { READ_MESSAGES: false}).then(member => {
+      message.channel.send(`${blind.user.username} est aveugle!`);
+  })
+}
+if(message.content.startsWith("/unblind")) {
+  if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
+
+  if(message.mentions.users.size === 0) {
+      return message.channel.send('Vous devez mentionner un utilisateur !');
+     console.log("Un utilisateur a utilisé la commande de unblind")
+  }
+
+  var blind = message.guild.member(message.mentions.users.first());
+  if(!blind) {
+
+      return message.channel.send("Je n'ai pas trouvé l'utilisateur ou il l'existe pas !");
+
+  }
+  message.channel.overwritePermissions(blind, { READ_MESSAGES: true}).then(member => {
+      message.channel.send(`${blind.user.username} n'est plus aveugle!`);
+  })
+}
   }})
 
 
@@ -507,6 +616,7 @@ bot.on('message', message => {
       .addField('- /mute', "niveau requis: modo")
       .addField('- /kick', "niveau requis: modo")
       .addField('- /ban', "niveau requis: admin")
+      .addField('- /blind', "niveau requis: modo")
       .addField('- /OK', "pour quitter le mode modération")
       .setColor("A40340")
       message.channel.sendEmbed(embed)
@@ -517,33 +627,9 @@ bot.on('message', message => {
   if  (MOD === 2) {
     if (message.content === "/OK") {
       if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.channel.send("Vous n'avez pas la permission !");
-      function random(min, max){
-        min = Math.ceil(0);
-        max = Math.floor(2);
-        randnum = Math.floor(Math.random() * (max - min +1)+ min);
-      }
-      random()
-    if (randnum === 0) {
-      bot.user.setActivity('ne fais rien') }
-    if (randnum === 1) {
-      bot.user.setActivity('dormir debout') }
-    if (randnum === 2) {
-      bot.user.setActivity('coder') }
-    if (randnum === 3) {
-      bot.user.setActivity('embetter Kobby')
-      }
-    if (randnum === 4) {
-      bot.user.setActivity('découvrir un nouveau monde')
-      }
-    if (randnum === 5) {
-      bot.user.setActivity("lire l'avenir !")
-      }
-    if (randnum === 6) {
-      bot.user.setActivity('un FPS')
-      }
-    if (randnum === 7) {
-      bot.user.setActivity('comquérir le monde !')
-      }
+
+     gameset.action()
+
     var embed = new Discord.RichEmbed()
       .setDescription("Menace écartée")
       .setColor("A40340")
@@ -553,6 +639,7 @@ bot.on('message', message => {
     }
   }
 })
+
 var W = 0
 var L = 0
 var E = 0
@@ -607,7 +694,6 @@ bot.on('message', message => {
         }
       }
     })
-
 
 
 bot.login(process.env.TOKEN)
