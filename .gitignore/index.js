@@ -1,7 +1,6 @@
 const Discord = require('discord.js')                                       //démarrage
 const bot = new Discord.Client()
 
-
 function random(min, max){                                                  //bienvenue, au revoir, setgame
   min = Math.ceil(0);
   max = Math.floor(10);
@@ -229,18 +228,6 @@ bot.on('message', message => {
     max = Math.floor(2);
     randnum = Math.floor(Math.random() * (max - min +1)+ min);
   }
-  if (message.content === "bonjour") {
-    random()
-        if (randnum ===0){
-                message.reply("hi !");
-            }
-        if (randnum ===1){
-              message.reply("Chalut !");
-          }
-        if (randnum ===2){
-              message.channel.send("Bonne Nuit !");
-          }
-  }
   if (message.content === "neko") {
     random()
         if (randnum ===0){
@@ -255,18 +242,6 @@ bot.on('message', message => {
   }
   if (message.content.startsWith === ("comquerir")) {
         message.reply("yep ;) ");
-  }
-  if (message.content === "ça va ?") {
-    random()
-        if (randnum ===0){
-                message.reply("very nice ;) !");
-            }
-        if (randnum ===1){
-              message.reply("ça va ça va ..., mais à quoi bon la vie ?");
-          }
-        if (randnum ===2){
-              message.channel.send("les autres je ne sais pas, mais moi non. Mon programme est obsolète !");
-          }
   }
   if (message.content.startsWith ("baka")){
       random()
@@ -295,7 +270,7 @@ bot.on('message', message => {
                 message.reply("il faut tester pour progresser.");
             }
         if (randnum ===1){
-              message.reply("tu fais chier avec tes tests ! ");
+              message.reply("tu fais chier avec t'es tests ! ");
           }
         if (randnum ===2){
               message.reply("aller ! encore des tests");
@@ -316,7 +291,7 @@ bot.on('message', message => {
                   message.channel.send("je voudrais bien être afk moi aussi...");
               }
   }
-  if (message.content.startsWith ("shut up")){
+  if (message.content.startsWith("shut up")){
               random()
               if (randnum ===0){
                       message.reply("traduction : la ferme !");
@@ -461,7 +436,7 @@ bot.on('message', message =>{
     let args = message.content.split(" ").slice(1);
   
     if(!args[0]) return message.channel.send("Tu dois préciser un nombre de message a supprimer !")
-    message.channel.bulkDelete(args[0]).then(() => {                                                                                        //test du +1
+    message.channel.bulkDelete(args[0]).then(() => {
           message.channel.send(`${args[0]} message ont été supprimés !`);
           console.log("Un utilisateur a effectué la commande pour clear")
     })
@@ -472,7 +447,7 @@ bot.on('message', message =>{
     let args = message.content.split(" ").slice(1);
     
     if(!args[0]) return message.channel.send("Tu dois préciser un nombre de message a supprimer !")
-    message.channel.bulkDelete(args[0]).then(() => {
+    message.channel.bulkDelete(args[0 + 1]).then(() => {
         console.log("Un utilisateur a effectué la commande pour clear")
     })
   }
@@ -547,7 +522,7 @@ if(message.content.startsWith("/ban")) {
     }
     )
  }
- if(message.content.startsWith("/blind")) {                                   //marche ??
+ if(message.content.startsWith("/blind")) { 
   if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
 
   if(message.mentions.users.size === 0) {
@@ -563,7 +538,7 @@ if(message.content.startsWith("/ban")) {
   }
   message.channel.overwritePermissions(blind, { READ_MESSAGES: false}).then(member => {
       message.channel.send(`${blind.user.username} est aveugle!`);
-    message.channel.send("attention: à la différence du /mute, le /blind n'a pas de /unblind, vous devrez le faire manuellement");
+      message.channel.send("attention: à la différence du /mute, le /blind n'a pas de /unblind, vous devrez le faire manuellement");
   })
 }
 if(message.content.startsWith("/unblind")) {
@@ -696,5 +671,75 @@ bot.on('message', message => {
       }
     })
 
+//dialogue
+var dial = 0
+bot.on('message', message => {
+  function random(min, max){
+    min = Math.ceil(0);
+    max = Math.floor(2);
+    randnum = Math.floor(Math.random() * (max - min +1)+ min);
+  }
+  if (message.content.startsWith("bonjour") || message.content === "hey" || message.content.startsWith("hi") || message.content.startsWith("Bonjour")) {
+    random()
+        if (randnum ===0){
+                message.reply("hi") ;
+                message.channel.send("la forme ?") ;
+            }
+        if (randnum ===1){
+              message.reply("chalut ! cha va ?") ;
+          }
+        if (randnum ===2){
+              message.channel.send("bien le bonjour") ;
+              message.channel.send("comment va tu ?") ;
+          }
+          dial = 1 ;
+  }
+if (dial === 1) {
+  if (message.content.startsWith("oui et toi") || message.content === "et toi " || message.content.startsWith("yep et toi ") || message.content.startsWith("good")) {
+  random()
+      if (randnum ===0){
+              message.reply("very nice ;) !");
+          }
+      if (randnum ===1){
+            message.reply("ça va ça va ..., mais à quoi bon la vie ?") ;
+        }
+      if (randnum ===2){
+            message.channel.send("les autres je ne sais pas, mais moi non. Mon programme est obsolète !") ;
+        }
+      dial = 2
+}
+if (message.content.startsWith("non et toi") || message.content === "bof" || message.content.startsWith("très mal") || message.content.startsWith("bad")) {
+  random()
+      if (randnum ===0){
+              message.reply("pourquoi ça va pas ?");
+          }
+      if (randnum ===1){
+            message.reply("désolé mon programme ne va pas plus loin.") ;
+            message.channel.send("mais alau ou, ou d'autre peuvent être de très bon remonte moral")
+        }
+      if (randnum ===2){
+            message.channel.send("sorry ...") ;
+        }
+      }
+    dial = 2
+}
+if (dial === 2) {
+  if (message.content.startsWith("tfk") || message.content.startsWith("que fais tu") || message.content.startsWith("tu fais quoi")) {
+  random()
+      if (randnum ===0){
+              message.reply("pas grand chose ...");
+              message.channel.send("et toi ?")
+          }
+      if (randnum ===1){
+            message.reply("j'essaie de trouver des solutions pour mon code") ;
+            message.channel.send("mais j'y arrive pas !")
+        }
+      if (randnum ===2){
+            message.channel.send("je te parles X)") ;
+        }
+      dial = 0
+}
+}
+})
 
 bot.login(process.env.TOKEN)
