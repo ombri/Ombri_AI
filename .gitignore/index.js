@@ -744,6 +744,24 @@ if (dial === 2) {
         }
       if (randnum ===2){
             message.channel.send("je te parles X)") ;
+            dial = 3
+        }
+}
+}
+if (dial === 3) {
+  if (message.content.startsWith("rien") || message.content.startsWith("je m'ennuie") || message.content.startsWith("comme toi")) {
+  random()
+      if (randnum ===0){
+              message.reply("au moins on est 2 maintenant");
+              dial = 0
+          }
+      if (randnum ===1){
+            message.reply("je suis plus seul :) ...") ;
+            message.channel.send("mais ça change pas grand chose, on s'ennuie ...") ;
+            dial = 0
+        }
+      if (randnum ===2){
+            message.channel.send("+1") ;
             dial = 0
         }
 }
