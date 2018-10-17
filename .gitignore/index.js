@@ -679,65 +679,73 @@ bot.on('message', message => {
     max = Math.floor(2);
     randnum = Math.floor(Math.random() * (max - min +1)+ min);
   }
-  if (message.content.startsWith("bonjour") || message.content === "hey" || message.content.startsWith("hi") || message.content.startsWith("Bonjour")) {
+  if (message.content.startsWith("bonjour") || message.content === "hey" || message.content.startsWith("hi") || message.content.startsWith("Bonjour") || message.content === "salut") {
     random()
         if (randnum ===0){
                 message.reply("hi") ;
                 message.channel.send("la forme ?") ;
+                dial = 1 ;
             }
         if (randnum ===1){
               message.reply("chalut ! cha va ?") ;
+              dial = 1 ;
           }
         if (randnum ===2){
               message.channel.send("bien le bonjour") ;
               message.channel.send("comment va tu ?") ;
+              dial = 1 ;
           }
-          dial = 1 ;
   }
 if (dial === 1) {
-  if (message.content.startsWith("oui et toi") || message.content === "et toi " || message.content.startsWith("yep et toi ") || message.content.startsWith("good")) {
+  if (message.content.startsWith("oui et toi") || message.content === "et toi " || message.content.startsWith("yep et toi ") || message.content.startsWith("good") || message.content.startsWith("ouais et toi") || message.content.startsWith("bien et toi")) {
   random()
       if (randnum ===0){
               message.reply("very nice ;) !");
+              dial = 2
           }
       if (randnum ===1){
             message.reply("ça va ça va ..., mais à quoi bon la vie ?") ;
+            dial = 2
         }
       if (randnum ===2){
             message.channel.send("les autres je ne sais pas, mais moi non. Mon programme est obsolète !") ;
+            dial = 2
         }
-      dial = 2
 }
 if (message.content.startsWith("non et toi") || message.content === "bof" || message.content.startsWith("très mal") || message.content.startsWith("bad")) {
   random()
       if (randnum ===0){
               message.reply("pourquoi ça va pas ?");
+              dial = 2
           }
       if (randnum ===1){
             message.reply("désolé mon programme ne va pas plus loin.") ;
-            message.channel.send("mais alau ou, ou d'autre peuvent être de très bon remonte moral")
+            message.channel.send("mais alau ou, ou d'autre peuvent être de très bon remonte moral") ;
+            dial = 2
         }
       if (randnum ===2){
             message.channel.send("sorry ...") ;
+            dial = 2
         }
       }
-    dial = 2
 }
 if (dial === 2) {
   if (message.content.startsWith("tfk") || message.content.startsWith("que fais tu") || message.content.startsWith("tu fais quoi")) {
   random()
       if (randnum ===0){
               message.reply("pas grand chose ...");
-              message.channel.send("et toi ?")
+              message.channel.send("et toi ?") ;
+              dial = 0
           }
       if (randnum ===1){
             message.reply("j'essaie de trouver des solutions pour mon code") ;
-            message.channel.send("mais j'y arrive pas !")
+            message.channel.send("mais j'y arrive pas !") ;
+            dial = 0
         }
       if (randnum ===2){
             message.channel.send("je te parles X)") ;
+            dial = 0
         }
-      dial = 0
 }
 }
 })
