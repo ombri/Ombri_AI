@@ -679,7 +679,7 @@ bot.on('message', message => {
     max = Math.floor(2);
     randnum = Math.floor(Math.random() * (max - min +1)+ min);
   }
-  if (message.content.startsWith("bonjour") || message.content === "hey" || message.content.startsWith("hi") || message.content.startsWith("Bonjour") || message.content === "salut") {
+  if (message.content.startsWith("bonjour") || message.content === "hey" || message.content ==="hi" || message.content.startsWith("Bonjour") || message.content === "salut") {
     random()
         if (randnum ===0){
                 message.reply("hi") ;
