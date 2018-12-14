@@ -471,7 +471,7 @@ bot.on('message', message =>{
      if(!kick) {
          return message.channel.send("Je ne sais pas si l'utilisateur existe :/");
      }
-     if(kick.("hasPermission("BAN_MEMBERS"))) {
+     if(kick.hasPermission("BAN_MEMBERS")) {
          retur message.channel.send("Les modos ne peuvent pas kick un admin");
      }
      kick.kick().then(member => {
