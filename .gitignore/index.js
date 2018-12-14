@@ -462,21 +462,24 @@ bot.on('message', message =>{
         message.channel.send(`${mute.user.username} n'est plus mute !`);
    })
   }
-  if(message.content.startsWith("/kick")) {
-    if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.channel.send ("Vous n'avez pas la permission");
-    if(message.mentions.users.size === 0) {
-        return message.channel.send("Vous devez mentionner un utilisateur");
-    }
-    var kick = message.guild.member(message.mentions.users.first());
-    if(!kick) {
-        return message.channel.send("Je ne sais pas si l'utilisateur existe :/");
-    }
-    kick.kick().then(member => {
-        message.channel.send(`${member.user.username} est kick par ${message.author.username} !`)
-        console.log("Un utilisateur a effectué la commande pour kick")
-    }
-    )
- }
+   if(message.content.startsWith("/kick")) {
+     if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.channel.send ("Vous n'avez pas la permission");
+     if(message.mentions.users.size === 0) {
+         return message.channel.send("Vous devez mentionner un utilisateur");
+     }
+     var kick = message.guild.member(message.mentions.users.first());
+     if(!kick) {
+         return message.channel.send("Je ne sais pas si l'utilisateur existe :/");
+     }
+     if(kick.("hasPermission("BAN_MEMBERS"))) {
+         retur message.channel.send("Les modos ne peuvent pas kick un admin");
+     }
+     kick.kick().then(member => {
+         message.channel.send(`${member.user.username} est kick par ${message.author.username} !`)
+         console.log("Un utilisateur a effectué la commande pour kick")
+     }
+     )
+  }
 if(message.content.startsWith("/ban")) {
     if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.channel.send ("Vous n'avez pas la permission");
     if(message.mentions.users.size === 0) {
