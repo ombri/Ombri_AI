@@ -738,4 +738,23 @@ if (dial === 3) {
 }
 })
 
+
+const { Client, Attachment } = require('discord.js');
+
+
+client.on('ready', () => {
+  console.log('I am ready!');
+});
+
+client.on('message', message => {
+    if (message.startsWith('!lol') {
+        let heros = arg[1]
+        lien = 'https://euw.leagueoflegends.com/fr/game-info/champions/' + heros + '/'
+        // Create the attachment using Attachment
+        const attachment = new Attachment('lien');
+        // Send the attachment in the message channel with a content
+        message.channel.send(`${message.author},`, attachment);
+    }
+});
+
 bot.login(process.env.TOKEN)
