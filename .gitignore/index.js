@@ -182,7 +182,7 @@ bot.on('message', message => {
     console.log("I play pokemon ...")
   }
   if (message.content.startsWith("/say")){
-    if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.channel.send("Vous n'avez pas la permission !");
+    if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.channel.send("Vous n'avez pas la permission !");
      message.delete(message.author);
      var say = message.content.substr(5);
      message.channel.send(say);
