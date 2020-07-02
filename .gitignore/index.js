@@ -401,7 +401,7 @@ bot.on('message', message =>{
     console.log("un utilisateur à regarder les stats du serveur")
   }
  if(message.content.startsWith("/clear")) {
-    if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
+    if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES") or !message.guild.member(message.author).ID("326776404429504513")) return message.channel.send("Vous n'avez pas la permission !");
   
     let args = message.content.split(" ").slice(1);
   
