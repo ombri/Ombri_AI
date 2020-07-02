@@ -52,6 +52,18 @@ class gameset {
 }
 
 bot.on('message', message => {
+  if(message.content.startsWith("/clears")) {                                                                                                   //peut etre pas ok
+    if(!message.guild.member(message.author).id("326776404429504513")) return message.channel.send("Vous n'avez pas la permission !");
+    
+    let args = message.content.split(" ").slice(1);
+    
+    if(!args[0]) return message.channel.send("Tu dois préciser un nombre de message a supprimer !")
+    message.channel.bulkDelete(args[0]+int 1).then(() => {
+        console.log("Un utilisateur a effectué la commande pour clearS")
+    })
+  })
+
+bot.on('message', message => {
   if (message.content === "/setgame") {
      gameset.action()
      console.log("game set")
@@ -409,16 +421,6 @@ bot.on('message', message =>{
     message.channel.bulkDelete(args[0]).then(() => {
           message.channel.send(`${args[0]} message ont été supprimés !`);
           console.log("Un utilisateur a effectué la commande pour clear")
-    })
-  }
-  if(message.content.startsWith("/clears")) {                                                                                                   //peut etre pas ok
-    if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.channel.send("Vous n'avez pas la permission !");
-    
-    let args = message.content.split(" ").slice(1);
-    
-    if(!args[0]) return message.channel.send("Tu dois préciser un nombre de message a supprimer !")
-    message.channel.bulkDelete(args[0 + 1]).then(() => {
-        console.log("Un utilisateur a effectué la commande pour clear")
     })
   }
  })
